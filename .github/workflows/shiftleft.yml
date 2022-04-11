@@ -58,8 +58,7 @@ jobs:
       run: |
         ${GITHUB_WORKSPACE}/sl check-analysis \
           --v2 \
-          --app shiftleft-java-demo-22-04-11 \
-          --source=tag.branch=master --target=tag.branch=$(Build.SourceBranchName) \
+          --app "shiftleft-java-demo-220411" \
           --report \
           --github-pr-number=${{github.event.number}} \
           --github-pr-user=${{ github.repository_owner }} \
