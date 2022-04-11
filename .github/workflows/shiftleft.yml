@@ -59,7 +59,6 @@ jobs:
         ${GITHUB_WORKSPACE}/sl check-analysis \
           --v2 \
           --app "shiftleft-java-demo-220411" \
-          --source=tag.branch=master --target=tag.branch=$(Build.SourceBranchName) \
           --report \
           --github-pr-number=${{github.event.number}} \
           --github-pr-user=${{ github.repository_owner }} \
