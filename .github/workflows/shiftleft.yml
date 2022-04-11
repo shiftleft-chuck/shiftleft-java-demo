@@ -50,9 +50,7 @@ jobs:
     - name: Validate Build Rules
       run: |
         ${GITHUB_WORKSPACE}/sl check-analysis --v2 --app shiftleft-java-demo \
-            --branch "${{ github.head_ref || steps.extract_branch.outputs.branch }}" \
-            --report
-            
+            --source=tag.branch=master --target=tag.branch=$(Build.SourceBranchName) --report \
             #--github-pr-number=${{github.event.number}} \
             #--github-pr-user=${{ github.repository_owner }} \
             #--github-pr-repo=${{ github.event.repository.name }} \
