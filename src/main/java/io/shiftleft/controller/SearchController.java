@@ -19,6 +19,9 @@ public class SearchController {
 
   @RequestMapping(value = "/search/user", method = RequestMethod.GET)
   public String doGetSearch(@RequestParam String foo, HttpServletResponse response, HttpServletRequest request) {
+    if (!allowedCommands.contains(foo))
+      throw new IOException("Not permitted");
+    
     java.lang.Object message = new Object();
     try {
       ExpressionParser parser = new SpelExpressionParser();
