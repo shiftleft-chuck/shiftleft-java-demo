@@ -6,27 +6,11 @@ jobs:
     machine: true
     steps:
     - run:
-        name: Build the application
-        command: |
-            mvn clean package #build the app
-            mkdir -p /tmp/workspace/target #create a directory for ShiftLeft
-            mv target/hello-shiftleft-0.0.1.jar /tmp/workspace/target/
-            curl https://app.shiftleft.io/download/sl-latest-linux-x64.tar.gz > /tmp/sl.tar.gz && sudo tar -C /usr/local/bin -xzf /tmp/sl.tar.gz #download ShiftLeft
-            PR_USER=$(echo $CIRCLE_PULL_REQUEST | cut -d '/' -f4)
-            PR_REPO=$(echo $CIRCLE_PULL_REQUEST | cut -d '/' -f5) 
-            PR_NUMBER=$(echo $CIRCLE_PULL_REQUEST | cut -d '/' -f7) 
-            sl analyze --wait --tag branch=$CIRCLE_BRANCH --app Shiftleft-Java-Demo-CircleCI /tmp/workspace/target/hello-shiftleft-0.0.1.jar
-      #- checkout
-      #- run: mvn package #if necessary, build app
-      #- run: curl https://app.shiftleft.io/download/sl-latest-linux-x64.tar.gz > /tmp/sl.tar.gz && sudo tar -C /usr/local/bin -xzf /tmp/sl.tar.gz #download ShiftLeft
-      #- shiftleft/analyze:
-          PR_USER=$(echo $CIRCLE_PULL_REQUEST | cut -d '/' -f4)
-          PR_REPO=$(echo $CIRCLE_PULL_REQUEST | cut -d '/' -f5) 
-          PR_NUMBER=$(echo $CIRCLE_PULL_REQUEST | cut -d '/' -f7) 
-          sl analyze --wait --tag branch=$CIRCLE_BRANCH --app Shiftleft-Java-Demo-CircleCI /tmp/workspace/target/hello-shiftleft-0.0.1.jar
-          #app: Shiftleft-Java-Demo-CircleCI
-          #target: target/hello-shiftleft-0.0.1.jar
-          #language: java
+      - checkout
+      - run: mvn package
+        app: Shiftleft-Java-Demo-CircleCI
+        target: target/hello-shiftleft-0.0.1.jar
+        language: java
 workflows:
   version: 2.1
   workflow:
