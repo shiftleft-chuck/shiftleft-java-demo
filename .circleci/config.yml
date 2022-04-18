@@ -1,12 +1,12 @@
 version: 2.1
-orbs: 
-  #shiftleft: shiftleft/shiftleft@1.0.6
+orbs:
+  shiftleft: shiftleft/shiftleft@1.0.6
 jobs:
   build:
     machine: true
     steps:
       - checkout
-      - run: mvn package
+      - run: mvn package #if necessary, build app
       - shiftleft/analyze:
           app: Shiftleft-Java-Demo-CircleCI
           target: target/hello-shiftleft-0.0.1.jar
