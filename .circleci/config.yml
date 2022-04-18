@@ -12,7 +12,6 @@ jobs:
           target: target/hello-shiftleft-0.0.1.jar
           language: java
 workflows:
-  workflow:
-    version: 2.1
-    jobs:
-      - build
+  version: 2.1
+  jobs:
+    - build
