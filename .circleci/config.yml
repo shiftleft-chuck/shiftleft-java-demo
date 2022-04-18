@@ -1,5 +1,5 @@
 version: 2.1
-orbs:
+orbs: 
   shiftleft: shiftleft/shiftleft@1.0.6
 jobs:
   build:
@@ -13,5 +13,6 @@ jobs:
           language: java
 workflows:
   workflow:
+    version: 2.1
     jobs:
       - build
