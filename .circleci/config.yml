@@ -3,7 +3,6 @@ orbs:
   shiftleft: shiftleft/shiftleft@1.0.6
 jobs:
   build:
-    #machine: true
     machine:
       image: ubuntu-2004:202010-01
     steps:
