@@ -13,5 +13,6 @@ jobs:
           language: java
 workflows:
   version: 2.1
-  jobs:
-    - build
+  workflow:
+    jobs:
+      - build
