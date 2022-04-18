@@ -8,9 +8,9 @@ jobs:
       - checkout
       - run: mvn package #if necessary, build app
       - shiftleft/analyze:
-          app: YOUR_APP_NAME
-          target: target/<PATH_TO_JAR_OR_WAR>
-          language: java #app language
+          app: Shiftleft-Java-Demo-CircleCI
+          target: target/hello-shiftleft-0.0.1.jar
+          language: java
 workflows:
   workflow:
     jobs:
