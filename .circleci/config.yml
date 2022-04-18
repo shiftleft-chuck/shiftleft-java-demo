@@ -5,12 +5,12 @@ jobs:
   build:
     machine: true
     steps:
-    - run:
       - checkout
       - run: mvn package
-        app: Shiftleft-Java-Demo-CircleCI
-        target: target/hello-shiftleft-0.0.1.jar
-        language: java
+      - shiftleft/analyze:
+          app: Shiftleft-Java-Demo-CircleCI
+          target: target/hello-shiftleft-0.0.1.jar
+          language: java
 workflows:
   workflow:
     jobs:
