@@ -1,6 +1,6 @@
 version: 2.1
 orbs: 
-  #shiftleft: shiftleft/shiftleft@1.0.6
+  #shiftleft: shiftleft/shiftleft
 jobs:
   build:
     machine: true
