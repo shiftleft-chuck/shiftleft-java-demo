@@ -55,7 +55,7 @@ jobs:
       run: |
         ${GITHUB_WORKSPACE}/sl check-analysis \
           --v2 \
-          --app "shiftleft-java-demo-220411" \
+          --app "shiftleft-java-demo-041222" \
           --report \
           --github-pr-number=${{github.event.number}} \
           --github-pr-user=${{ github.repository_owner }} \
