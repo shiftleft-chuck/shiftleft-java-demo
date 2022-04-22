@@ -56,7 +56,7 @@ public class AdminController {
     }
 
     String authToken = request.getSession().getAttribute("auth").toString();
-    if(!isAdmin(authToken)) {
+    //if(!isAdmin(authToken)) {
       return fail;
     }
 
