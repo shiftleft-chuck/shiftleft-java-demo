@@ -12,6 +12,11 @@ jobs:
           app: Shiftleft-Java-Demo-CircleCI
           target: target/hello-shiftleft-0.0.1.jar
           language: java
+      - shiftleft/buil-rules:
+          v2
+          app: Shiftleft-Java-Demo-CircleCI
+          report
+          
 workflows:
   workflow:
     jobs:
