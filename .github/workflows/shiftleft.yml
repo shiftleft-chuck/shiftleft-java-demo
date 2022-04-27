@@ -55,6 +55,7 @@ jobs:
       run: |
         ${GITHUB_WORKSPACE}/sl check-analysis \
           --v2 \
+          --target tag.branch=${{ github.head_ref || steps.extract_branch.outputs.branch }} \
           --app "shiftleft-java-demo" \
           --report \
           --github-pr-number=${{github.event.number}} \
