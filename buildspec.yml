@@ -1,0 +1,30 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Entering the install phase...
+    finally:
+      - echo Exiting the dependency install phase...
+  pre_build:
+    commands:
+      - echo Downloading the ShiftLeft CLI...
+      - curl https://cdn.shiftleft.io/download/sl > $HOME/sl && chmod a+rx $HOME/sl
+      - $HOME/sl update jre
+    finally:
+      - echo Downloaded ShiftLeft...
+  build:
+    commands:
+      - echo Entering the maven build process...
+      - mvn clean package
+    finally:
+      - echo Exiting the maven build process...
+  post_build:
+    commands:
+      - echo Starting code analysis with NG SAST...
+      - $HOME/sl analyze --app HelloShiftLeft_AWS --wait --java target/hello-shiftleft-0.0.1.jar
+    finally:
+      - echo Ran NG SAST on your code
+artifacts:
+  files:
+    - target/hello-shiftleft-0.0.1.jar
