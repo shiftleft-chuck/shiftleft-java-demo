@@ -38,7 +38,7 @@ jobs:
       run: |
         ${GITHUB_WORKSPACE}/sl analyze --wait --app "shiftleft-java-demo" \
           --tag branch=${{ github.head_ref || steps.extract_branch.outputs.branch }} \
-          --vcs-prefix-correction "*=/src/main/java" \
+          --vcs-prefix-correction "io/shiftleft=src/main/java" \
           --java --cpg target/hello-shiftleft-0.0.1.jar
       env:
         SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
