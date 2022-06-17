@@ -21,9 +21,9 @@ public class SearchController {
   public String doGetSearch(@RequestParam String foo, HttpServletResponse response, HttpServletRequest request) {
     java.lang.Object message = new Object();
     try {
-      ExpressionParser parser = new SpelExpressionParser();
-      Expression exp = parser.parseExpression(foo);
-      message = (Object) exp.getValue();
+      //ExpressionParser parser = new SpelExpressionParser();
+      //Expression exp = parser.parseExpression(foo);
+      //message = (Object) exp.getValue();
     } catch (Exception ex) {
       System.out.println(ex.getMessage());
     }
