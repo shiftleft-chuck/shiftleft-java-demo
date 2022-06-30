@@ -36,7 +36,7 @@ jobs:
       id: extract_branch
     - name: NextGen Static Analysis
       run: |
-        ${GITHUB_WORKSPACE}/sl analyze --wait --app "shiftleft-java-demo" \
+        ${GITHUB_WORKSPACE}/sl analyze --verbose --wait --app "SL-java-github" \
           --tag branch=${{ github.head_ref || steps.extract_branch.outputs.branch }} \
           --java --cpg target/hello-shiftleft-0.0.1.jar
           
@@ -56,7 +56,7 @@ jobs:
         ${GITHUB_WORKSPACE}/sl check-analysis \
           --v2 \
           --target tag.branch=${{ github.head_ref || steps.extract_branch.outputs.branch }} \
-          --app "shiftleft-java-demo" \
+          --app "SL-java-github" \
           --report \
           --github-pr-number=${{github.event.number}} \
           --github-pr-user=${{ github.repository_owner }} \
