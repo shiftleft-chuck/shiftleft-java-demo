@@ -54,12 +54,12 @@ public class AdminController {
     if (request.getSession().getAttribute("auth") == null) {
       return fail;
     }
-
+/*
     String authToken = request.getSession().getAttribute("auth").toString();
     if(!isAdmin(authToken)) {
       return fail;
     }
-
+*/
     ClassPathResource cpr = new ClassPathResource("static/calculations.csv");
     try {
       byte[] bdata = FileCopyUtils.copyToByteArray(cpr.getInputStream());
